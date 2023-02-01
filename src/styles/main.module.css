@@ -1,0 +1,204 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100%;
+    overflow-y: hidden;
+    background-color: black;
+}
+
+.menuContainer {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: black;
+    /* background-color: rgba(255, 255, 255, 0.041);
+    backdrop-filter: blur(2px); */
+}
+
+.menuContent {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    max-width: 70%;
+    padding-block: 15px;
+    margin-inline: auto;
+    align-content: center;
+}
+
+.nav {
+    position: absolute;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.link {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.link:hover,
+.logo:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: url("https://64.media.tumblr.com/e8fce305032ebbe540ce2e5e494feb65/efa32496c7208c50-42/s2048x3072/b9927e96c77b4355aa7c4ce328f1846eadf64016.jpg");
+    /* background-color: black; */
+}
+
+.profileBorder {
+    width: 190px;
+    height: 190px;
+    border-radius: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px rgba(247, 65, 65, 0.411);
+    background-color: rgb(212, 48, 48);
+}
+
+.activity {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.034);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.songCover {
+    height: 100px;
+    width: 100px;
+    margin-right: 15px;
+    border-radius: 5px;
+    background-size: contain;
+    background-image: url("https://i.scdn.co/image/ab67616d00001e023df7559738365afd56edb286");
+}
+
+.activityName {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-block: 5px;
+}
+
+.activityTitle {
+    color: white;
+}
+
+.userActivityWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.progressBar {
+    margin-top: 15px;
+    height: 6px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: red;
+}
+
+.userActivity {
+    margin-left: 15px;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.034);
+    backdrop-filter: blur(5px); */
+    align-items: center;
+    padding-block: 15px;
+    padding-inline: 13px;
+}
+
+.profile {
+    height: 180px;
+    width: 180px;
+    border-radius: 300px;
+    background-color: rgb(27, 27, 27);
+}
+
+.footer {
+    padding-inline: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 10px;
+    background-color: rgb(14, 14, 14);
+}
+
+.footerWrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.status {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.status>span {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.statusCircle {
+    height: 8px;
+    width: 8px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 7px rgb(0, 255, 64);
+    background-color: rgb(0, 255, 64);
+}
+
+.map {
+    border-left: 1px solid rgb(24, 24, 24);
+    padding-left: 10px;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    display: flex;
+    flex-direction: column;
+    margin-right: 35px;
+}
+
+.social {
+    border-left: 1px solid rgb(24, 24, 24);
+    padding-left: 10px;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    display: flex;
+    flex-direction: column;
+}
+
+.social>a,
+.map>a {
+    color: rgb(100, 100, 100);
+    margin-bottom: 5px;
+}
+
+.smallTitle {
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(110, 110, 110);
+}
+
+.footerLinks {
+    display: flex;
+    flex-direction: row;
+}
