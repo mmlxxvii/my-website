@@ -134,11 +134,12 @@
 }
 
 .footer {
-    padding-inline: 30px;
+    /* padding-inline: 30px; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-block: 10px;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    padding-block-start: 10px;
     background-color: rgb(14, 14, 14);
 }
 
@@ -259,4 +260,15 @@
 
 .sendBtn:hover{
     opacity: .8;
+}
+
+.createdBy{
+    color: rgb(116, 116, 116);
+    background-color: rgb(15, 15, 15);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-top: 10px;
 }

@@ -69,7 +69,7 @@ export default function Home() {
           <SocialIcon alt="github" url="www.google.com" imageSrc="https://avatars.githubusercontent.com/u/96957399?v=4" />
         </div>
       </div>
-      <div style={{backgroundColor: "black", paddingBlock: 20}}>
+      <div style={{ backgroundColor: "black", paddingBlock: 20 }}>
         <div className={styles.margin}>
           <h2 style={{ color: "white", marginBlock: 20 }}>latest projects</h2>
           <div>
@@ -81,7 +81,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div style={{backgroundColor: "#080808", paddingBlock: 20}}>
+      <div style={{ backgroundColor: "#080808", paddingBlock: 20 }}>
         <div className={styles.margin}>
           <h2 style={{ color: "white", marginBlock: 20 }}>send me death threats</h2>
           <form>
@@ -133,6 +133,9 @@ export default function Home() {
             <span>bot status</span>
             <div className={styles.statusCircle} />
           </div>
+        </div>
+        <div className={styles.createdBy}>
+          <span>at least i tried</span>
         </div>
       </div>
     </div>
