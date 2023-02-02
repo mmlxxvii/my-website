@@ -54,9 +54,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-repeat: no-repeat;
-    background: url("https://64.media.tumblr.com/e8fce305032ebbe540ce2e5e494feb65/efa32496c7208c50-42/s2048x3072/b9927e96c77b4355aa7c4ce328f1846eadf64016.jpg");
-    /* background-color: black; */
+   /*  background-repeat: no-repeat;
+    background: url("https://64.media.tumblr.com/e8fce305032ebbe540ce2e5e494feb65/efa32496c7208c50-42/s2048x3072/b9927e96c77b4355aa7c4ce328f1846eadf64016.jpg"); */
+    background-color: rgb(8, 8, 8);
 }
 
 .profileBorder {
