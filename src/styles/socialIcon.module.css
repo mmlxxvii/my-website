@@ -1,0 +1,15 @@
+.socialIcon{
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    background-color: rgb(12, 12, 12);
+    transition: .2s;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.014);
+}
+
+.socialIcon:hover{
+    transition: .2s;
+    transform: translateY(-5px);
+}

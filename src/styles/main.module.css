@@ -1,27 +1,28 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     max-width: 100%;
     overflow-y: hidden;
     background-color: black;
 }
 
 .menuContainer {
+    z-index: 9999;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     background-color: black;
-    /* background-color: rgba(255, 255, 255, 0.041);
-    backdrop-filter: blur(2px); */
+    background-color: rgba(0, 0, 0, 0.678);
+    backdrop-filter: blur(2px);
 }
 
 .menuContent {
     color: white;
     text-align: center;
     font-size: 16px;
-    max-width: 70%;
+    width: min(82%, 70rem);
     padding-block: 15px;
     margin-inline: auto;
     align-content: center;
@@ -48,11 +49,12 @@
 }
 
 .content {
-    flex: 1;
+    height: 95vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-repeat: no-repeat;
     background: url("https://64.media.tumblr.com/e8fce305032ebbe540ce2e5e494feb65/efa32496c7208c50-42/s2048x3072/b9927e96c77b4355aa7c4ce328f1846eadf64016.jpg");
     /* background-color: black; */
 }
@@ -71,13 +73,13 @@
 .activity {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.034);
-    backdrop-filter: blur(5px);
     padding: 10px;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    /* background-color: rgba(255, 255, 255, 0.034);
+    backdrop-filter: blur(5px); */
 }
 
 .songCover {
@@ -114,12 +116,13 @@
 }
 
 .userActivity {
-    margin-left: 15px;
+    display: none;
+    margin-inline: 25px;
     border-radius: 5px;
-    /* background-color: rgba(255, 255, 255, 0.034);
-    backdrop-filter: blur(5px); */
     align-items: center;
     padding-block: 15px;
+    background-color: rgba(255, 255, 255, 0.034);
+    backdrop-filter: blur(5px);
     padding-inline: 13px;
 }
 
@@ -127,7 +130,7 @@
     height: 180px;
     width: 180px;
     border-radius: 300px;
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(0, 0, 0);
 }
 
 .footer {
@@ -140,10 +143,10 @@
 }
 
 .footerWrapper {
-    width: 80%;
     margin: auto;
+    width: min(80%, 70rem);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .status {
@@ -201,4 +204,59 @@
 .footerLinks {
     display: flex;
     flex-direction: row;
+}
+
+.socialIconsWrapper {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    align-content: center;
+    justify-content: center;
+    width: 300px;
+}
+
+.margin {
+    margin: auto;
+    width: min(80%, 70rem);
+}
+
+.input {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+    background-color: rgb(29, 29, 29);
+}
+
+.textArea {
+    font-size: 15px;
+    padding: 10px;
+    color: white;
+    height: 300px;
+    resize: none;
+    border: none;
+    margin-top: 10px;
+    background-color: rgb(29, 29, 29);
+}
+
+.sendBtn{
+    display: flex;
+    padding: 10px;
+    width: 20%;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(221, 221, 221);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgba(255, 0, 0, 0.575);
+}
+
+.sendBtn:hover{
+    opacity: .8;
 }
