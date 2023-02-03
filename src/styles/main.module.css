@@ -1,39 +1,29 @@
 .container {
     display: flex;
-    flex-direction: column;
     height: 100%;
     max-width: 100%;
     overflow-y: hidden;
+    flex-direction: column;
     background-color: black;
 }
 
-.menuContainer {
+.navContainer {
+    top: 0;
+    right: 0;
     z-index: 9999;
     width: 100vw;
     position: fixed;
-    top: 0;
-    right: 0;
-    background-color: black;
-    background-color: rgba(0, 0, 0, 0.678);
+    background-color: rgba(6, 6, 6, 0.666);
     backdrop-filter: blur(2px);
 }
 
-.menuContent {
+.navContent {
     color: white;
     text-align: center;
     font-size: 16px;
     width: min(82%, 70rem);
     padding-block: 15px;
     margin-inline: auto;
-    align-content: center;
-}
-
-.nav {
-    position: absolute;
-}
-
-.logo {
-    font-size: 20px;
 }
 
 .link {
@@ -50,100 +40,30 @@
 
 .content {
     height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-   /*  background-repeat: no-repeat;
-    background: url("https://64.media.tumblr.com/e8fce305032ebbe540ce2e5e494feb65/efa32496c7208c50-42/s2048x3072/b9927e96c77b4355aa7c4ce328f1846eadf64016.jpg"); */
-    background-color: rgb(8, 8, 8);
 }
 
-.profileBorder {
+.avatarBorder {
     width: 190px;
     height: 190px;
     border-radius: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 20px rgba(247, 65, 65, 0.411);
-    background-color: rgb(212, 48, 48);
 }
 
-.activity {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    /* background-color: rgba(255, 255, 255, 0.034);
-    backdrop-filter: blur(5px); */
-}
-
-.songCover {
-    height: 100px;
-    width: 100px;
-    margin-right: 15px;
-    border-radius: 5px;
-    background-size: contain;
-    background-image: url("https://i.scdn.co/image/ab67616d00001e023df7559738365afd56edb286");
-}
-
-.activityName {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-block: 5px;
-}
-
-.activityTitle {
-    color: white;
-}
-
-.userActivityWrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.progressBar {
-    margin-top: 15px;
-    height: 6px;
-    width: 100%;
-    border-radius: 5px;
-    background-color: red;
-}
-
-.userActivity {
-    display: none;
-    margin-inline: 25px;
-    border-radius: 5px;
-    align-items: center;
-    padding-block: 15px;
-    background-color: rgba(255, 255, 255, 0.034);
-    backdrop-filter: blur(5px);
-    padding-inline: 13px;
-}
-
-.profile {
+.avatar {
     height: 180px;
     width: 180px;
     border-radius: 300px;
-    background-color: rgb(0, 0, 0);
 }
 
 .footer {
-    /* padding-inline: 30px; */
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     flex-direction: column;
     padding-block-start: 10px;
     background-color: rgb(14, 14, 14);
 }
 
-.footerWrapper {
+.footerContent {
     margin: auto;
     width: min(80%, 70rem);
     display: flex;
@@ -162,37 +82,22 @@
     margin-right: 10px;
 }
 
-.statusCircle {
+/* bot status */
+
+.botStatus {
     height: 8px;
     width: 8px;
     border-radius: 100px;
+}
+
+.statusOnline {
     box-shadow: 0px 0px 7px rgb(0, 255, 64);
     background-color: rgb(0, 255, 64);
 }
 
-.map {
-    border-left: 1px solid rgb(24, 24, 24);
-    padding-left: 10px;
-    font-size: 14px;
-    color: rgb(100, 100, 100);
-    display: flex;
-    flex-direction: column;
-    margin-right: 35px;
-}
-
-.social {
-    border-left: 1px solid rgb(24, 24, 24);
-    padding-left: 10px;
-    font-size: 14px;
-    color: rgb(100, 100, 100);
-    display: flex;
-    flex-direction: column;
-}
-
-.social>a,
-.map>a {
-    color: rgb(100, 100, 100);
-    margin-bottom: 5px;
+.statusOffline {
+    box-shadow: 0px 0px 7px rgb(255, 0, 43);
+    background-color: rgb(255, 0, 43);
 }
 
 .smallTitle {
@@ -207,12 +112,9 @@
     flex-direction: row;
 }
 
-.socialIconsWrapper {
-    display: flex;
+.socialIconsContainer {
     gap: 8px;
     margin-top: 10px;
-    align-content: center;
-    justify-content: center;
     width: 300px;
 }
 
@@ -221,54 +123,42 @@
     width: min(80%, 70rem);
 }
 
-.input {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-size: 15px;
-    margin-top: 10px;
-    background-color: rgb(29, 29, 29);
-}
-
-.textArea {
-    font-size: 15px;
-    padding: 10px;
-    color: white;
-    height: 300px;
-    resize: none;
-    border: none;
-    margin-top: 10px;
-    background-color: rgb(29, 29, 29);
-}
-
-.sendBtn{
-    display: flex;
-    padding: 10px;
-    width: 20%;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: rgb(221, 221, 221);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    background-color: rgba(255, 0, 0, 0.575);
-}
-
-.sendBtn:hover{
-    opacity: .8;
-}
-
-.createdBy{
-    color: rgb(116, 116, 116);
-    background-color: rgb(15, 15, 15);
+.createdBy {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: rgb(116, 116, 116);
     padding: 5px;
     margin-top: 10px;
+    background-color: rgb(15, 15, 15);
+}
+
+.alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: white;
+    font-size: 20px;
+}
+
+.social {
+    margin-right: 35px;
+    border-left: 1px solid rgb(24, 24, 24);
+    padding-left: 10px;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    display: flex;
+    flex-direction: column;
+}
+
+.social>a {
+    color: rgb(100, 100, 100);
+    margin-bottom: 5px;
+}
+
+
+.smallTitle2 {
+    color: "white";
+    font-size: 14px;
 }
