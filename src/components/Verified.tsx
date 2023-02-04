@@ -1,5 +1,5 @@
 import Image from "next/image"
-import verifiedIcon from "@/assets/Verified_icon.svg"
+import verifiedIcon from "@/assets/verified_icon.svg"
 
 export default function Verified() {
     return (
