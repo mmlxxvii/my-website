@@ -7,8 +7,8 @@ import { ping } from "@/scripts/ping-bot"
 import { getGithub } from "@/scripts/get-github"
 import { getDiscord } from "@/scripts/get-discord"
 import { socialMedias } from "@/db"
-import Icon from "@/components/Icon"
 import Verified from "@/components/Verified"
+import Icon from "@/components/Icon"
 import Card from "@/components/Card"
 
 export default function Home() {
