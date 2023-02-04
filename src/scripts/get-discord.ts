@@ -1,9 +1,8 @@
 import { BotAPI } from "@/@types/bot-api"
-import { endpoint } from "discord.config.json"
 
 const getDiscord = async (): Promise<BotAPI | null> => {
     try {
-        const res: Response = await fetch(endpoint)
+        const res: Response = await fetch("http://localhost:1337/api/me")
         const data = await res.json()
 
         return data
