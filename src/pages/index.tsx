@@ -2,37 +2,20 @@ import { useState, useEffect } from "react"
 
 import styles from "@/styles/main.module.css"
 
+import { BgGradient, BoxShadow, StatusColors } from "@/styles-enums"
+import { GitHubAPI } from "@/@types/github-api"
 import { BotAPI } from "@/@types/bot-api"
 import { ping } from "@/scripts/ping-bot"
-import { fetchBotApi } from "@/scripts/get-data"
+import { getGithub } from "@/scripts/get-github"
+import { fetchBotApi } from "@/scripts/get-discord"
+import { socialMedias } from "@/db"
 
-import defaultAvatar from "@/assets/black.jpg"
-import Verified from "@/components/verified"
 import SocialIcon from "@/components/SocialIcon"
-import Card from "@/components/card"
-
-enum StatusColors {
-  offline = "rgb(66, 66, 66)",
-  online = "rgb(0, 255, 64)",
-  idle = "rgb(255, 145, 0)",
-  dnd = "rgb(255, 0, 43)",
-}
-
-enum BgGradient {
-  offline = "radial-gradient(rgba(255, 255, 255, 0.034), rgb(0, 0, 0))",
-  online = "radial-gradient(rgba(0, 255, 64, 0.034), rgb(0, 0, 0))",
-  idle = "radial-gradient(rgba(255, 145, 0, 0.034), rgb(0, 0, 0))",
-  dnd = "radial-gradient(rgba(255, 0, 13, 0.034), rgb(0, 0, 0))",
-}
-
-enum BoxShadow {
-  offline = "0px 0px 20px rgba(167, 167, 167, 0.151)",
-  online = "0px 0px 20px rgba(0, 255, 64, 0.301)",
-  idle = "0px 0px 20px rgba(255, 145, 0, 0.151)",
-  dnd = "0px 0px 20px rgba(255, 0, 13, 0.151)"
-}
+import Verified from "@/components/Verified"
+import Card from "@/components/Card"
 
 export default function Home() {
+  const [projects, setProjects] = useState<Array<GitHubAPI> | null>(null);
   const [isBotOnline, setIsBotOnline] = useState<boolean>(false)
   const [avatarBorder, setAvatarBorder] = useState(
     {
@@ -47,28 +30,19 @@ export default function Home() {
     }
   )
   const [backgroundGradient, setBackgroundGradient] = useState({ background: BgGradient.offline })
-  const socialMedias = [
-    {
-      name: "github",
-      link: "https://github.com/MMLXXVII",
-      imageUrl: require("@/assets/github.svg"),
-    },
-    {
-      name: "discord",
-      link: "https://github.com/MMLXXVII",
-      imageUrl: require("@/assets/discord.svg"),
-    },
-    {
-      name: "linkedin",
-      link: "https://github.com/MMLXXVII",
-      imageUrl: require("@/assets/linkedin.svg"),
-    },
-    {
-      name: "email",
-      link: "https://github.com/MMLXXVII",
-      imageUrl: require("@/assets/envelope-solid.svg"),
-    }
-  ]
+
+  useEffect(() => {
+    (async () => {
+      const res = await getGithub()
+
+      if (!res) {
+        return
+      }
+
+      setProjects(res)
+
+    })()
+  }, [])
 
   useEffect(() => {
     (async () => {
@@ -106,7 +80,7 @@ export default function Home() {
           backgroundColor: StatusColors.offline,
           boxShadow: BoxShadow.offline
         }
-        bg = { background: BgGradient.online }
+        bg = { background: BgGradient.offline }
 
       }
 
@@ -125,6 +99,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const res = await ping()
+
       setIsBotOnline(res !== null)
 
     })()
@@ -144,19 +119,17 @@ export default function Home() {
           <div className={styles.avatar} style={avatarImage} />
         </div>
         <div className={`${styles.socialIconsContainer} ${styles.alignCenter}`}>
-          {
-            socialMedias && socialMedias.map((e) => (
-              <SocialIcon alt={e.name} imageSrc={e.imageUrl} url={e.link} />
-            ))
-          }
+          {socialMedias.map((e, index) => (
+            <SocialIcon alt={e.name} imageSrc={e.imageUrl} url={e.link} key={index} />
+          ))}
         </div>
       </div>
       <div style={{ backgroundColor: "black", paddingBlockEnd: 30 }}>
         <div className={styles.margin}>
           <h2 style={{ color: "white", marginBlock: 20 }}>latest projects</h2>
-          <Card />
-          <Card />
-          <Card />
+          {projects && projects.map((e, index) => (
+            <Card name={e.name} url={e.url} updatedAt={e.updatedAt} key={index} />
+          ))}
         </div>
       </div>
       <div className={styles.footer}>
@@ -172,10 +145,9 @@ export default function Home() {
             <div>
               <p className={styles.smallTitle}>social</p>
               <div className={styles.social}>
-                <a href="/">github</a>
-                <a href="/">twitter</a>
-                <a href="/">discord</a>
-                <a href="/">linkedin</a>
+                {socialMedias.map((e, index) => {
+                  return e.name !== "email" ? <a href={e.link} key={index} >{e.name}</a> : null
+                })}
               </div>
             </div>
           </div>

@@ -9,8 +9,8 @@ type Props = {
 
 export default function SocialIcon({ alt, url, imageSrc }: Props) {
     return (
-        <a href={url} target="_blank">
-            <Image alt={alt} src={imageSrc} height={1} width={1} color="white" className={styles.socialIcon} />
+        <a className={styles.socialIcon} href={url} target={"_blank"}>
+            <Image alt={alt} src={imageSrc} height={30} width={30} title={alt}/>
         </a>
     )
 }
