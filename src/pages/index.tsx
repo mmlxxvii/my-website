@@ -1,34 +1,27 @@
 import { useState, useEffect } from "react"
-
 import styles from "@/styles/main.module.css"
-
 import { BgGradient, BoxShadow, StatusColors } from "@/styles-enums"
 import { GitHubAPI } from "@/@types/github-api"
 import { BotAPI } from "@/@types/bot-api"
 import { ping } from "@/scripts/ping-bot"
 import { getGithub } from "@/scripts/get-github"
-import { fetchBotApi } from "@/scripts/get-discord"
+import { getDiscord } from "@/scripts/get-discord"
 import { socialMedias } from "@/db"
-
-import SocialIcon from "@/components/SocialIcon"
+import Icon from "@/components/Icon"
 import Verified from "@/components/Verified"
 import Card from "@/components/Card"
 
 export default function Home() {
   const [projects, setProjects] = useState<Array<GitHubAPI> | null>(null);
   const [isBotOnline, setIsBotOnline] = useState<boolean>(false)
-  const [avatarBorder, setAvatarBorder] = useState(
-    {
-      backgroundColor: StatusColors.offline,
-      boxShadow: BoxShadow.offline
-    }
-  )
-  const [avatarImage, setAvatarImage] = useState(
-    {
-      backgroundSize: "cover",
-      backgroundImage: `radial-gradient(rgb(0, 0, 0), rgb(0, 0, 0))`,
-    }
-  )
+  const [avatarBorder, setAvatarBorder] = useState({
+    backgroundColor: StatusColors.offline,
+    boxShadow: BoxShadow.offline
+  })
+  const [avatarImage, setAvatarImage] = useState({
+    backgroundSize: "cover",
+    backgroundImage: `radial-gradient(rgb(0, 0, 0), rgb(0, 0, 0))`,
+  })
   const [backgroundGradient, setBackgroundGradient] = useState({ background: BgGradient.offline })
 
   useEffect(() => {
@@ -46,37 +39,37 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const res: BotAPI | null = await fetchBotApi()
+      const res: BotAPI | null = await getDiscord()
       let bg
-      let avtrBrdr
+      let avatarBorder
 
-      if (res === null) {
+      if (!res) {
         return
       }
 
       if (res?.status === "online") {
-        avtrBrdr = {
+        avatarBorder = {
           backgroundColor: StatusColors.online,
           boxShadow: BoxShadow.online
         }
         bg = { background: BgGradient.online }
 
       } else if (res?.status === "dnd") {
-        avtrBrdr = {
+        avatarBorder = {
           backgroundColor: StatusColors.dnd,
           boxShadow: BoxShadow.dnd
         }
         bg = { background: BgGradient.dnd }
 
       } else if (res?.status === "idle") {
-        avtrBrdr = {
+        avatarBorder = {
           backgroundColor: StatusColors.idle,
           boxShadow: BoxShadow.idle
         }
         bg = { background: BgGradient.idle }
 
       } else {
-        avtrBrdr = {
+        avatarBorder = {
           backgroundColor: StatusColors.offline,
           boxShadow: BoxShadow.offline
         }
@@ -85,13 +78,11 @@ export default function Home() {
       }
 
       setBackgroundGradient(bg)
-      setAvatarBorder(avtrBrdr)
-      setAvatarImage(
-        {
-          backgroundSize: "contain",
-          backgroundImage: `url(${res.avatarUrl})`,
-        }
-      )
+      setAvatarBorder(avatarBorder)
+      setAvatarImage({
+        backgroundSize: "contain",
+        backgroundImage: `url(${res.avatarUrl})`,
+      })
 
     })()
   }, [])
@@ -116,11 +107,11 @@ export default function Home() {
       </div>
       <div className={`${styles.content} ${styles.alignCenter}`} style={backgroundGradient}>
         <div className={`${styles.avatarBorder} ${styles.alignCenter}`} style={avatarBorder}>
-          <div className={styles.avatar} style={avatarImage} />
+          <div className={styles.avatar} style={avatarImage} title={"discord"} />
         </div>
         <div className={`${styles.socialIconsContainer} ${styles.alignCenter}`}>
           {socialMedias.map((e, index) => (
-            <SocialIcon alt={e.name} imageSrc={e.imageUrl} url={e.link} key={index} />
+            <Icon alt={e.name} imageSrc={e.imageUrl} url={e.link} key={index} />
           ))}
         </div>
       </div>
@@ -151,7 +142,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className={styles.status}>
+          <div className={`${styles.status} ${styles.alignCenter}`}>
             <span>bot status</span>
             <div className={`${styles.botStatus} ${isBotOnline ? styles.statusOnline : styles.statusOffline}`} />
           </div>

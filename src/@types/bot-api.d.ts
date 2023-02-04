@@ -1,4 +1,4 @@
-export type BotAPI = {
+type BotAPI = {
     username: string,
     avatarUrl: string,
     status: string,
@@ -9,3 +9,5 @@ export type BotAPI = {
         image: string | null
     } | null
 }
+
+export { BotAPI }

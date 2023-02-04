@@ -1,6 +1,6 @@
 import { BotAPI } from  "@/@types/bot-api"
 
-const fetchBotApi = async (): Promise<BotAPI | null> => {
+const getDiscord = async (): Promise<BotAPI | null> => {
     try {
         const url: string   = "http://localhost:1337/api/me"
         const res: Response = await fetch(url)
@@ -14,4 +14,4 @@ const fetchBotApi = async (): Promise<BotAPI | null> => {
     }
 }
 
-export { fetchBotApi }
+export { getDiscord }

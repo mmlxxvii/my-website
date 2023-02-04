@@ -2,8 +2,8 @@ import { GitHubAPI } from "@/@types/github-api"
 
 const getGithub = async (): Promise<Array<GitHubAPI> | null> => {
     try {
-        const url = "https://api.github.com/users/MMLXXVII/repos?sort=updated&direction=desc"
-        const res = await fetch(url)
+        const url: string = "https://api.github.com/users/MMLXXVII/repos?sort=updated&direction=desc"
+        const res: Response = await fetch(url)
         const data = await res.json()
         const repos: Array<GitHubAPI> = []
 

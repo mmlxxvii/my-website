@@ -6,17 +6,17 @@ const socialMedias = [
     },
     {
         name: "discord",
-        link: "https://github.com/MMLXXVII",
+        link: "https://discord.gg/dwfBHz2SK7",
         imageUrl: require("@/assets/discord.svg"),
     },
-    {
+/*     {
         name: "linkedin",
         link: "https://github.com/MMLXXVII",
         imageUrl: require("@/assets/linkedin.svg"),
-    },
+    }, */
     {
         name: "email",
-        link: "https://github.com/MMLXXVII",
+        link: "mailto:mmlxxvii@pm.me",
         imageUrl: require("@/assets/email.svg"),
     }
 ]
