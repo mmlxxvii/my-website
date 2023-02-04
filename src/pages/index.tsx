@@ -99,8 +99,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.navContainer}>
-        <div className={styles.navContent}>
-          <a className={styles.title}>mmlxxvii</a>
+        <div className={`${styles.navContent} ${styles.margin}`}>
+          <a className={`${styles.title} ${styles.logo}`}>mmlxxvii</a>
           <Verified />
           <Verified />
         </div>
@@ -124,7 +124,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.footer}>
-        <div className={styles.footerContent}>
+        <div className={`${styles.footerContent} ${styles.margin}`}>
           <div className={styles.footerLinks}>
             <div>
               <p className={styles.smallTitle}>site</p>
