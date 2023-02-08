@@ -4,7 +4,7 @@ import { BgGradient, BoxShadow, StatusColors } from "@/styles-enums"
 import { GitHubAPI } from "@/@types/github-api"
 import { BotAPI } from "@/@types/bot-api"
 import { ping } from "@/scripts/ping-bot"
-import { getGithub } from "@/scripts/get-github"
+import { getGithub, getGithubAvatar } from "@/scripts/get-github"
 import { getDiscord } from "@/scripts/get-discord"
 import { socialMedias } from "@/db"
 import Verified from "@/components/Verified"
@@ -44,7 +44,18 @@ export default function Home() {
       let avatarBorder
 
       if (!res) {
+        const gh = await getGithubAvatar()
+
+        if (gh) {
+          setAvatarImage(({
+            backgroundSize: "cover",
+            backgroundImage: `url(${gh?.avatarUrl})`,
+          }))
+
+        }
+
         return
+
       }
 
       if (res?.status === "online") {

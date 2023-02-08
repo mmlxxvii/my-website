@@ -4,4 +4,8 @@ type GitHubAPI = {
     updatedAt: string
 }
 
-export { GitHubAPI }
+type AvatarUrl = {
+    avatarUrl: string
+}
+
+export { GitHubAPI, AvatarUrl }

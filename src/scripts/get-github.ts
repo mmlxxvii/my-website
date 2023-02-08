@@ -1,8 +1,10 @@
-import { GitHubAPI } from "@/@types/github-api"
+import { GitHubAPI, AvatarUrl } from "@/@types/github-api"
+
+const baseUrl = "https://api.github.com/users/MMLXXVII"
 
 const getGithub = async (): Promise<Array<GitHubAPI> | null> => {
     try {
-        const url: string = "https://api.github.com/users/MMLXXVII/repos?sort=updated&direction=desc"
+        const url: string = `${baseUrl}/repos?sort=updated&direction=desc`
         const res: Response = await fetch(url)
         const data = await res.json()
         const repos: Array<GitHubAPI> = []
@@ -32,4 +34,21 @@ const getGithub = async (): Promise<Array<GitHubAPI> | null> => {
     }
 }
 
-export { getGithub }
+const getGithubAvatar = async (): Promise<AvatarUrl | null> => {
+    try {
+        const res: Response = await fetch(baseUrl)
+        const data = await res.json()
+
+        if (!res) {
+            return null
+        }
+
+        return { avatarUrl: data.avatar_url }
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+export { getGithub, getGithubAvatar }
