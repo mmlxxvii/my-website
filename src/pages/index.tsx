@@ -118,7 +118,7 @@ export default function Home() {
       </div>
       <div className={`${styles.content} ${styles.alignCenter}`} style={backgroundGradient}>
         <div className={`${styles.avatarBorder} ${styles.alignCenter}`} style={avatarBorder}>
-          <div className={styles.avatar} style={avatarImage} title={"discord"} />
+          <div className={styles.avatar} style={avatarImage} title={isBotOnline ? "discord" : "github"} />
         </div>
         <div className={`${styles.socialIconsContainer} ${styles.alignCenter}`}>
           {socialMedias.map((e, index) => (
